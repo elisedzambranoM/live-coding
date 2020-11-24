@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="4" v-for="course in courses" :key="course.id">
-        <tarjetaCurso :id="course.id" :image="course.image" />
+        <tarjeta-curso :id="course.id" :image="course.image" />
       </v-col>
     </v-row>
   </v-container>
