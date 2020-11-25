@@ -14,13 +14,13 @@
           transition="scale-transition"
           width="130"
         />
-       <span class="bar__title"  @click="goHome"><strong>LIVE CODING</strong></span>
+       <span class="bar__title"  @click.prevent="goHome"><strong>LIVE CODING</strong></span>
       </div>
 
       <v-spacer></v-spacer>
 
       <v-btn
-        @click="signOut"
+        @click.prevent="signOut"
         href=""
         target="_blank"
         text

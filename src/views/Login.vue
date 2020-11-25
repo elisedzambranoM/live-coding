@@ -27,7 +27,7 @@
               </v-form>
             </v-card-text>
             <v-card-actions class="d-flex justify-center">
-              <v-btn color="info" @click="login">Login</v-btn>
+              <v-btn color="info" @click.prevent="login">Login</v-btn>
             </v-card-actions>
           </v-card>
         </v-img>
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
   name: "Login",
 
@@ -50,7 +52,17 @@ export default {
 
   methods: {
     login() {
-      this.$router.push("/cursos");
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.user, this.password)
+        .then(() => {
+          this.user = ""
+          this.password= ""
+          this.$router.push("/cursos");
+        })
+        .catch(() => {
+          alert("Todos los campos son requeridos");
+        });
     },
   },
 };
