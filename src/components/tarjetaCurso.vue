@@ -18,7 +18,7 @@
         </v-card-text>
 
         <v-card-actions>
-          <v-btn @click="goToDetails" color="orange" text>
+          <v-btn @click="goToDetails(name)" color="orange" text>
             Ver detalle del curso
           </v-btn>
         </v-card-actions>
@@ -34,8 +34,8 @@ export default {
   props: ["id", "name", "image"],
 
   methods: {
-    goToDetails() {
-      const path = "/info/guitarra"
+    goToDetails(name) {
+      const path = `/info/${name}`
       this.$router.push(path);
     },
   },
