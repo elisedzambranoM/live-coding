@@ -9,10 +9,10 @@
         >
         </v-img>
 
-        <v-card-subtitle class="pb-0"> Number {{ id }} </v-card-subtitle>
+        <v-card-subtitle class="pb-0"></v-card-subtitle>
 
         <v-card-text class="text--primary">
-          <div>Whitehaven Beach</div>
+          <div><strong>{{name}}</strong></div>
 
           <div>Whitsunday Island, Whitsunday Islands</div>
         </v-card-text>
@@ -31,11 +31,12 @@
 export default {
   name: "tarjetaCurso",
 
-  props: ["id", "image"],
+  props: ["id", "name", "image"],
 
   methods: {
     goToDetails() {
-      this.$router.push("/info");
+      const path = "/info/guitarra"
+      this.$router.push(path);
     },
   },
 };

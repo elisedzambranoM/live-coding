@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <v-container>
+    <h1 class="d-flex justify-center"><strong>Cursos Disponibles</strong></h1>
     <list-courses/> 
-   </div>
+   </v-container>
 </template>
 
 <script>

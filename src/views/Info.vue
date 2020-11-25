@@ -1,17 +1,19 @@
 <template>
   <v-container>
-    componente ejemplos
+     <h1 class="d-flex justify-center"><strong>Nombre: {{ $route.params.banana }}</strong></h1>
+    <list-examples />
   </v-container>
 </template>
 
 <script>
-export default {
+import listExamples from "@/components/listExamples.vue";
 
-}
+export default {
+  name: "info",
+  components: {
+    listExamples,
+  },
+};
 </script>
 
-<style>
-
-</style>
-
-
+<style></style>
