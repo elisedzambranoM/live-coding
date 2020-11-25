@@ -20,6 +20,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
+        @click="signOut"
         href=""
         target="_blank"
         text
@@ -50,6 +51,9 @@ export default {
   }),
   methods:{
     goHome(){
+      this.$router.push("/")
+    },
+    signOut(){
       this.$router.push("/")
     }
   }

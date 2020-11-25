@@ -21,11 +21,12 @@
                   :type="showPassword ? 'text' : 'password'"
                   prepend-icon="mdi-lock"
                   :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                  @click:append="showPassword = !showPassword"
                   v-model="password"
                 />
               </v-form>
             </v-card-text>
-            <v-card-actions  class="d-flex justify-center">
+            <v-card-actions class="d-flex justify-center">
               <v-btn color="info" @click="login">Login</v-btn>
             </v-card-actions>
           </v-card>
@@ -38,6 +39,20 @@
 <script>
 export default {
   name: "Login",
+
+  data() {
+    return {
+      user: "",
+      password: "",
+      showPassword: false,
+    };
+  },
+
+  methods: {
+    login() {
+      this.$router.push("/cursos");
+    },
+  },
 };
 </script>
 
