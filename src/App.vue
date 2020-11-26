@@ -37,7 +37,7 @@
 </template>
 
 <script>
-
+import firebase from 'firebase'
 
 export default {
   name: 'App',
@@ -47,15 +47,26 @@ export default {
   },
 
   data: () => ({
-    //
+    user: null
   }),
   methods:{
     goHome(){
       this.$router.push("/")
     },
     signOut(){
+      firebase.auth().signOut().then(() => {
       this.$router.push("/")
+      })
     }
+  },
+  created(){
+  firebase.auth().onAuthStateChanged(user => {
+    if(user){
+      this.user = user
+    }else{
+      this.user = null
+    }
+  })  
   }
 };
 </script>

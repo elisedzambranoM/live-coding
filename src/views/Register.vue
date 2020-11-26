@@ -5,11 +5,10 @@
         <v-img src="" min-height="100%">
           <v-card width="400px" class="mx-auto my-5">
             <v-card-title class="pb-0">
-              <h3 class="mx-auto mb-5">
-                <strong>ACADEMIA LIVE CODING</strong>
-              </h3>
+              <h4 class="mx-auto mb-5">
+                <strong>CREA UNA CUENTA</strong>
+              </h4>
             </v-card-title>
-            <h4 class="d-flex justify-center">Iniciar sesión</h4>
             <v-card-text>
               <v-form>
                 <v-text-field
@@ -28,14 +27,8 @@
               </v-form>
             </v-card-text>
             <v-card-actions class="d-flex justify-center">
-              <v-btn color="info" @click.prevent="login">Login</v-btn>
+              <v-btn color="info" @click.prevent="register">Registrarme</v-btn>
             </v-card-actions>
-            <span class="d-flex justify-center mt-4">
-              ¿No tienes una cuenta?
-              <router-link :to="{ name: 'Register' }">
-                Crea una</router-link
-              ></span
-            >
           </v-card>
         </v-img>
       </v-col>
@@ -47,7 +40,7 @@
 import firebase from "firebase";
 
 export default {
-  name: "Login",
+  name: "Register",
 
   data() {
     return {
@@ -58,14 +51,14 @@ export default {
   },
 
   methods: {
-    login() {
+    register() {
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.user, this.password)
+        .createUserWithEmailAndPassword(this.user, this.password)
         .then(() => {
-          this.user = "";
-          this.password = "";
-          this.$router.push("/cursos");
+          this.user = ""
+          this.password= ""
+          this.$router.push("/login");
         })
         .catch(() => {
           alert("Todos los campos son requeridos");
